@@ -138,6 +138,12 @@ namespace dnSpy.Contracts.Decompiler {
 			if (fo is null)
 				return false;
 			fileOffset = fo.Value;
+			if(fo != rva){
+				let diff = rva - fo;
+				rva += diff;
+				fo += diff;
+				fileOffset = fo.Value;
+			}
 			return true;
 		}
 
@@ -148,7 +154,6 @@ namespace dnSpy.Contracts.Decompiler {
 		/// <param name="rva">RVA</param>
 		/// <returns></returns>
 		public static uint? ToFileOffset(this ModuleDef? module, uint rva) {
-			return rva;
 			var m = module as ModuleDefMD;//TODO: Support CorModuleDef
 			if (m is null)
 				return null;
