@@ -139,7 +139,7 @@ namespace dnSpy.Contracts.Decompiler {
 				return false;
 			fileOffset = fo.Value;
 			if(fo != rva){
-				let diff = rva - fo;
+				var diff = rva - fo;
 				rva += diff;
 				fo += diff;
 				fileOffset = fo.Value;
