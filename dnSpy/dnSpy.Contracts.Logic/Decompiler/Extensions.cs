@@ -148,6 +148,7 @@ namespace dnSpy.Contracts.Decompiler {
 		/// <param name="rva">RVA</param>
 		/// <returns></returns>
 		public static uint? ToFileOffset(this ModuleDef? module, uint rva) {
+			return rva;
 			var m = module as ModuleDefMD;//TODO: Support CorModuleDef
 			if (m is null)
 				return null;
